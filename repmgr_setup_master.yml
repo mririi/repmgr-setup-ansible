@@ -84,7 +84,6 @@
         regexp: '^#?listen_addresses\s*=\s*.*'
         line: "listen_addresses = '*'"
         backup: yes
-      notify: Restart PostgreSQL
 
     - name: Restart PostgreSQL immediately
       systemd:
