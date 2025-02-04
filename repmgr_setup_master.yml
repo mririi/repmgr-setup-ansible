@@ -86,6 +86,11 @@
         backup: yes
       notify: Restart PostgreSQL
 
+    - name: Restart PostgreSQL immediately
+      systemd:
+        name: "{{ repmgr_service_name }}"
+        state: restarted
+
     - name: Ensure pg_hba.conf on master allows repmgr from {{ network_subnet }}
       blockinfile:
         path: /etc/postgresql/12/main/pg_hba.conf
